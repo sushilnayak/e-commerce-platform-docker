@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <springProperty scope="context" name="springAppName" source="spring.application.name"/>
+    <!-- Example console appender -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- Include %X{key:-default} for MDC values -->
+            <!-- Added %X{requestId:-NA} -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} [%X{requestId:-NA}] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Configure log levels -->
+    <logger name="com.nayak.productservice" level="DEBUG"/>
+    <logger name="org.springframework.web" level="INFO"/>
+    <logger name="org.springframework.data.mongodb" level="INFO"/>
+    <logger name="reactor.netty" level="INFO"/>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>
