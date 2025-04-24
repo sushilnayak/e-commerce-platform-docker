@@ -18,11 +18,10 @@ class CacheConfig {
             Caffeine.newBuilder()
                 .initialCapacity(100)
                 .maximumSize(500)
-                .expireAfterWrite(10, TimeUnit.MINUTES) // Example: Cache entries expire after 10 minutes
-                .recordStats() // Optional: for monitoring cache performance via Actuator
+                .expireAfterWrite(10, TimeUnit.MINUTES) // Cache entries expire after 10 minutes
+                .recordStats() // for monitoring cache performance via Actuator
         )
-        // Can configure per-cache settings too:
-        // caffeineCacheManager.registerCustomCache("categories", Caffeine.newBuilder()...build())
+
         return caffeineCacheManager
     }
 }
